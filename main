@@ -1,0 +1,35 @@
+row1 = ["⬜️","⬜️","⬜️"]
+row2 = ["⬜️","⬜️","⬜️"]
+row3 = ["⬜️","⬜️","⬜️"]
+map = [row1, row2, row3]
+print(f"{row1}\n{row2}\n{row3}")
+position = input("Where do you want to put the treasure? ")
+
+#below is basically a "for each"
+#convert position to int for each position in string position (the input)
+#can try to add each digit to a list and use that to index
+converted_ints = [int(position) for position in str(position)]
+#print list to view/test
+#print(converted_ints)
+
+list_length = len(converted_ints)
+last_position = list_length - 1
+
+#take list and use it to mark map
+column = converted_ints[0] - 1
+row = converted_ints[1] - 1
+
+if column > 2 or row > 2:
+    print("Sorry, please try a value that's 3 or less for both digits of your number. Please restart the program.\n")
+
+if column <= 2 and row <= 2:
+    #split row and column values into a new nested list to directly reference map -- mark with an x
+    map[row][column] = "X"
+
+    #no need to print the map[row][column] out because this is separate from the map updating
+
+#proves -1 math is working with column and row by printing the values
+#print(column)
+#print(row)
+
+print(f"{row1}\n{row2}\n{row3}")
